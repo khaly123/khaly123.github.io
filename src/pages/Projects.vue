@@ -134,7 +134,7 @@ export default {
           image: "https://ghdatabundles.com/assets/data_bundle_logo-OGOYY2mE.png",
           description: "Buy cheap and affordable Data on all Networks in Ghana.",
           link: "https://ghdatabundles.com/",
-          tech: ["React", "Node.js", "Markdown"]
+          tech: ["vue", "Node.js", "Markdown"]
         },
         {
           id: 3,
@@ -150,25 +150,25 @@ export default {
           title: "Consulting Agency",
           category: "Web",
           image: "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          description: "High-conversion marketing page with animations.",
+          description: "Improving learning outcomes in educational institutions.",
           link: "https://educeptconsult.org/",
-          tech: ["GSAP", "Tailwind", "AOS"]
+          tech: ["GSAP", "Tailwind", "AOS","Vue"]
         },
         {
           id: 5,
           title: "Game Tournament site ",
           category: "Web",
           image: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          description: "Admin dashboard with analytics and data visualization.",
+          description: "My first ever website when i started crafting",
           link: "https://my-project-1675794085164.web.app/",
-          tech: ["React", "Chart.js", "Material UI"]
+          tech: ["Vue", "Chart.js", "Material UI"]
         },
         {
           id: 6,
           title: "Software Services Website",
           category: "Web",
           image: "https://vitechsc.com/assets/vtc1-DOzETIoB.png",
-          description: "Event management and ticket booking platform.",
+          description: "Transforming businesses through innovative software solutions and cutting-edge IT services.",
           link: "https://vitechsc.com/",
           tech: ["Vue", "Node.js"]
         },
@@ -179,7 +179,7 @@ export default {
           image: "https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80",
           description: "Beautiful weather forecasts with live updates.",
           link: "#",
-          tech: ["React Native", "API", "Geolocation"]
+          tech: ["Flutter", "API", "Geolocation"]
         },
         {
           id: 8,
@@ -197,7 +197,7 @@ export default {
           image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
           description: "Track workouts, nutrition, and health metrics.",
           link: "#",
-          tech: ["Swift", "HealthKit", "Core Data"]
+          tech: ["Dart", "HealthKit", "Core Data"]
         },
         {
           id: 10,
@@ -206,7 +206,7 @@ export default {
           image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
           description: "Real-time messaging with end-to-end encryption.",
           link: "#",
-          tech: ["React Native", "Socket.io", "MongoDB"]
+          tech: ["Java", "Socket.io", "MongoDB"]
         },
         {
           id: 11,

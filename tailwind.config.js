@@ -8,8 +8,8 @@ module.exports = {
         "primary-dark": "#1E2032", // 👈 Add this line (custom dark variant of primary)
         secondary: "#8D99AE",
         light: "#EDF2F4",
-        accent: "#EF233C",
-        accentDark: "#D90429",
+        accent: "#F51630FF",
+        accentDark: "#D40023FF",
       },
     },
   },
