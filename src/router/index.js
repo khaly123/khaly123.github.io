@@ -5,6 +5,7 @@ import Skills from '../pages/Skills.vue'
 import Projects from '../pages/Projects.vue'
 import Contact from '../pages/Contact.vue'
 import Landing from '../pages/Landing.vue'
+import Graphics from '../pages/Graphics.vue'
 
 const routes = [
   { path: '/home', component: Home },
@@ -12,6 +13,7 @@ const routes = [
   { path: '/skills', component: Skills },
   { path: '/projects', component: Projects },
   { path: '/contact', component: Contact },
+  { path: '/graphics', component: Graphics},
   { path: '/', component: Landing },
 ]
 

@@ -145,6 +145,7 @@ export default {
       { name: 'About', path: '/about' },
       { name: 'Skills', path: '/skills' },
       { name: 'Projects', path: '/projects' },
+      { name: 'Graphic Design', path: '/graphics' },
       { name: 'Contact', path: '/contact' }
     ]
 

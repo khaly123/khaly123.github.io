@@ -2,6 +2,7 @@
   <div class="bg-darkBlack text-softCream">
     <Home />
     <About />
+    <Graphics />
     <Skills />
     <Projects />
     <Contact />
@@ -14,12 +15,14 @@ import About from './About.vue'
 import Skills from './Skills.vue'
 import Projects from './Projects.vue'
 import Contact from './Contact.vue'
+import Graphics from './Graphics.vue'
 
 export default {
   name: 'Landing',
   components: {
     Home,
     About,
+    Graphics,
     Skills,
     Projects,
     Contact
