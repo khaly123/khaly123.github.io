@@ -1,6 +1,6 @@
 <template>
   <section
-    class="min-h-screen pt-24 pb-16 bg-gradient-to-b from-primaryDark via-primary to-primaryDark"
+    class="min-h-screen pt-24 pb-16 bg-secondary"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

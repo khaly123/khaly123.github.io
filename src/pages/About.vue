@@ -1,5 +1,5 @@
 <template>
-  <div class="about-page">
+  <div class="about-page ">
     <main class="container mx-auto px-4 py-12">
       <!-- Hero Section -->
       <section class="text-center mb-20" data-aos="fade-down">
@@ -160,7 +160,7 @@ export default {
 <style scoped>
 .about-page {
   min-height: 100vh;
-  background-color: #2B2D42;
+  background-color: #000000F6;
 }
 
 .text-light {

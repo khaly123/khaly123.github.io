@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen bg-secondary text-light py-20 px-6 flex flex-col items-center justify-center overflow-hidden">
+  <section class="min-h-screen bg-black text-light py-20 px-6 flex flex-col items-center justify-center overflow-hidden">
     <div class="max-w-6xl w-full mx-auto space-y-16">
       <!-- Header Section -->
       <div class="text-center space-y-4" data-aos="fade-down" data-aos-duration="800">
@@ -171,7 +171,7 @@
             </div>
           </div>
 
-          <!-- Success Message (shown after form submission) -->
+          <!-- Success/Error Messages -->
           <div 
             v-if="isSuccess"
             class="bg-green-500/10 border border-green-500/30 p-4 rounded-lg backdrop-blur-sm flex items-start gap-3"
@@ -185,6 +185,20 @@
               <p class="text-sm text-green-200">Thank you for reaching out. I'll get back to you soon.</p>
             </div>
           </div>
+
+          <div 
+            v-if="errorMessage"
+            class="bg-red-500/10 border border-red-500/30 p-4 rounded-lg backdrop-blur-sm flex items-start gap-3"
+            data-aos="fade-up"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <h4 class="font-medium text-red-300">Something went wrong</h4>
+              <p class="text-sm text-red-200">{{ errorMessage }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -193,6 +207,7 @@
 
 <script>
 import { GithubIcon, LinkedinIcon, InstagramIcon } from 'lucide-vue-next'
+import emailjs from '@emailjs/browser'
 
 export default {
   components: {
@@ -210,6 +225,7 @@ export default {
       },
       isSubmitting: false,
       isSuccess: false,
+      errorMessage: '',
       socialLinks: [
         {
           name: 'GitHub',
@@ -233,25 +249,74 @@ export default {
   },
   methods: {
     async submitForm() {
-      this.isSubmitting = true
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      this.isSubmitting = false
-      this.isSuccess = true
-      
-      // Reset form
-      this.form = {
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+      // Validation
+      if (!this.form.name || !this.form.email || !this.form.message) {
+        this.showError('Please fill in all required fields')
+        return
       }
-      
-      // Hide success message after 5 seconds
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(this.form.email)) {
+        this.showError('Please enter a valid email address')
+        return
+      }
+
+      this.isSubmitting = true
+      this.errorMessage = ''
+
+      try {
+        // Initialize EmailJS with your public key from .env
+        emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+
+        // Prepare template parameters
+        const templateParams = {
+          from_name: this.form.name,
+          from_email: this.form.email,
+          subject: this.form.subject || 'No subject',
+          message: this.form.message,
+          to_email: 'khalydesmond@gmail.com', // Your receiving email
+          to_name: 'Desmond',
+          reply_to: this.form.email
+        }
+
+        // Send email using EmailJS
+        const response = await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          templateParams
+        )
+
+        if (response.status === 200) {
+          this.isSuccess = true
+          
+          // Reset form
+          this.form = {
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          }
+          
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            this.isSuccess = false
+          }, 5000)
+        } else {
+          throw new Error('Failed to send message')
+        }
+      } catch (error) {
+        console.error('EmailJS Error:', error)
+        this.showError(error.text || 'Failed to send message. Please try again later.')
+      } finally {
+        this.isSubmitting = false
+      }
+    },
+    showError(message) {
+      this.errorMessage = message
+      // Hide error message after 5 seconds
       setTimeout(() => {
-        this.isSuccess = false
+        this.errorMessage = ''
       }, 5000)
     }
   },
@@ -262,6 +327,13 @@ export default {
         once: true,
         duration: 800
       })
+    }
+
+    // Check if EmailJS environment variables are available
+    if (!import.meta.env.VITE_EMAILJS_SERVICE_ID || 
+        !import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 
+        !import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
+      console.warn('EmailJS environment variables are not set. Form submissions will not work.')
     }
   }
 }

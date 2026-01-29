@@ -1,6 +1,6 @@
 <template>
   <div class="skills-page">
-    <main class="container mx-auto px-4 py-12 bg-secondary">
+    <main class="container mx-auto px-4 py-12 bg-primary">
       <!-- Header Section -->
       <section class="text-center mb-16" data-aos="fade-down">
         <h1 class="text-5xl md:text-6xl font-bold mb-4 text-light">
